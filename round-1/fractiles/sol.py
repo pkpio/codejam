@@ -45,16 +45,26 @@ for t in range(T):
     if C == 1 and S < K:
         print('Case #{}: IMPOSSIBLE'.format(t+1))
 
-    elif S <= K:
+    elif S >= K:
         print_trivial_case(t,S)
 
-    else:
-        ### Claims: 1. Need (K-C+1) tiles atleast
-        ####        2. Break K into above # of pieces
+    # Observation
+    elif C >= K and K < 8:
+        C = K
 
         # Gen all original seqs
         org_seqs = gen_org_seqs(K)
 
         # Get the C complex artwork for each orginal seq
+        c_seqs = []
         for or_sq in org_seqs:
-            print(get_artwork(C,or_sq))
+            c_seqs.append(get_artwork(C,or_sq))
+
+        clen = len(c_seqs[0])
+        out = int(''.join([str(1)]*clen), 2)
+        for cseq in c_seqs[1:]:
+            out = int(out & int(cseq,2))
+        print('Case #{}: {}'.format(t+1, binary(out,clen).index('1')))
+
+    else:
+        print('Case #{}: {} {}'.format(t+1,2,(K**C)-2))
