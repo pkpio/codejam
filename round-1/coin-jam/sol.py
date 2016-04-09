@@ -4,7 +4,7 @@ import random
 # Returns a divisor of a number. If it's a prime, the number will be returned instead
 def divisor(n):
     div = n
-    for i in xrange(2, long(n**0.5) + 1):
+    for i in xrange(2, 10000): # Relaxing as factor below 10000 instead of long(n**0.5) + 1
         if n % i == 0:
             div = i
             break
@@ -38,18 +38,10 @@ def print_jc(jc, divs):
 def binary(num, length):
     return format(num, '#0{}b'.format(length + 2))
 
-seenRands = []
 randMax = 0
 # Generate a random potential jam coint (only middle part)
 def genRand(N):
     num = random.randint(0,randMax)
-    while True:
-        try:
-            seenRands.index(num)
-            num = random.randint(0,randMax)
-        except ValueError:
-            seenRands.append(num)
-            break
     return binary(num,N-2)[2:]
 
 
