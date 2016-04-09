@@ -1,3 +1,6 @@
+import math
+import random
+
 # Returns a divisor of a number. If it's a prime, the number will be returned instead
 def divisor(n):
     div = n
@@ -35,13 +38,29 @@ def print_jc(jc, divs):
 def binary(num, length):
     return format(num, '#0{}b'.format(length + 2))
 
+seenRands = []
+randMax = 0
+# Generate a random potential jam coint (only middle part)
+def genRand(N):
+    num = random.randint(0,randMax)
+    while True:
+        try:
+            seenRands.index(num)
+            num = random.randint(0,randMax)
+        except ValueError:
+            seenRands.append(num)
+            break
+    return binary(num,N-2)[2:]
+
+
 ## Main program ###
 T = int(input())
 N,J = [int(i) for i in raw_input().split(' ')]
+randMax = math.pow(2,N-2)
 
 for t in range(T):
-    jc = ''.join([str(0)]*(N-2)) # String of [N-2 0s]
-    count = 0                    # no of jam coins found
+    jc = genRand(N)
+    count = 0         # no of jam coins found
 
     print('Case #{}:'.format(t+1))
     while count < J:
