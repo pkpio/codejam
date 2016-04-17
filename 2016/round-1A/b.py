@@ -1,8 +1,5 @@
 from common import *
 
-#setInOut('B-small-practice.in','B-small-practice.out')
-setInOut('B-large-practice.in','B-large-practice.out')
-
 T = readInt()
 for t in range(T):
     hts = [0]*2501

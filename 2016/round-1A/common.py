@@ -1,9 +1,11 @@
-IN = open('data.in', 'r')
-OUT = open('data.out', 'w')
+IN = open('data/test.in', 'r')
+OUT = open('data/test.out', 'w')
 
 def setInOut(src, dst):
     global IN
     global OUT
+    IN.close()
+    OUT.close()
     IN = open(src, 'r')
     OUT = open(dst, 'w')
 
@@ -28,3 +30,6 @@ def writeLine(data):
 def done():
     IN.close()
     OUT.close()
+
+#setInOut('data/C-small-practice.in','data/C-small-practice.out')
+#setInOut('data/B-large-practice.in','data/B-large-practice.out')

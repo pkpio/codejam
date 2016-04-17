@@ -1,8 +1,5 @@
 from common import *
 
-#setInOut('C-small-practice.in','C-small-practice.out')
-#setInOut('B-large-practice.in','B-large-practice.out')
-
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -34,3 +31,4 @@ for t in range(T):
         l = l + getTwigLen(DG.copy(), cyc) if l == 2 else l
         mx = l if l>mx else mx
     writeLine('Case #{}: {}'.format(t+1, mx))
+done()
