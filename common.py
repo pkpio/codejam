@@ -1,8 +1,8 @@
 #############   CONFIG  ##########
-prob = 'B'
+prob = 'C'
 small = 0
 
-test = 1
+test = 0
 practice = 1
 attempt = 0
 ##################################
@@ -25,6 +25,9 @@ else:
 
 IN = open(src, 'r')
 OUT = open(dst, 'w')
+
+def readLineRaw():
+    return IN.readline().rstrip('\n')
 
 def readLine():
     return IN.readline().strip()
