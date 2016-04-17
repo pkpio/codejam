@@ -1,9 +1,10 @@
 from common import *
 
-#setInOut('B-small-practice.in','B-small-practice.out')
+#setInOut('C-small-practice.in','C-small-practice.out')
 #setInOut('B-large-practice.in','B-large-practice.out')
 
 import networkx as nx
+import matplotlib.pyplot as plt
 
 def maxInPathLen(DG, root):
     pres = DG.predecessors(root)
@@ -23,10 +24,13 @@ for t in range(T):
 
     DG=nx.DiGraph()
     DG.add_edges_from([(a,BFF[a]-1) for a in range(N)])
+    nx.draw(DG)
+    plt.show()
+
     cycles = list(nx.simple_cycles(DG))
     mx = 0
     for cyc in cycles:
         l = len(cyc)
         l = l + getTwigLen(DG.copy(), cyc) if l == 2 else l
         mx = l if l>mx else mx
-    print(mx)
+    writeLine('Case #{}: {}'.format(t+1, mx))
