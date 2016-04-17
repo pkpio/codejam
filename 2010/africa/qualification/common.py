@@ -2,7 +2,7 @@
 prob = 'B'
 small = 0
 
-test = 1
+test = 0
 practice = 1
 attempt = 0
 ##################################
