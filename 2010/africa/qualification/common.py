@@ -1,13 +1,30 @@
-IN = open('data/test.in', 'r')
-OUT = open('data/test.out', 'w')
+#############   CONFIG  ##########
+prob = 'A'
+small = 0
 
-def setInOut(src, dst):
-    global IN
-    global OUT
-    IN.close()
-    OUT.close()
-    IN = open(src, 'r')
-    OUT = open(dst, 'w')
+test = 0
+practice = 1
+attempt = 0
+##################################
+
+src = 'data/'
+dst = 'data/'
+if test:
+    src += 'test.in'
+    dst += 'test.out'
+else:
+    set = 'small' if small else 'large'
+    base = '{}-{}'.format(prob, set)
+    if practice:
+        base += '-practice'
+    else:
+        if small:
+            base += '-attempt' + str(attempt)
+    src += base + '.in'
+    dst += base + '.out'
+
+IN = open(src, 'r')
+OUT = open(dst, 'w')
 
 def readLine():
     return IN.readline()
@@ -30,6 +47,3 @@ def writeLine(data):
 def done():
     IN.close()
     OUT.close()
-
-setInOut('data/A-large-practice.in','data/A-large-practice.out')
-#setInOut('data/B-large-practice.in','data/B-large-practice.out')
