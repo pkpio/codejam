@@ -35,7 +35,7 @@ def readInt():
 def readIntArr():
     return [int(i) for i in readLine().split(' ')]
 
-def readCharArr():
+def readStringArr():
     return [i for i in readLine().split(' ')]
 
 def write(data):
