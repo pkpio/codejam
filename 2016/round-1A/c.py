@@ -1,7 +1,5 @@
 from common import *
-
 import networkx as nx
-import matplotlib.pyplot as plt
 
 def maxInPathLen(DG, root):
     pres = DG.predecessors(root)
@@ -18,11 +16,8 @@ T = readInt()
 for t in range(T):
     N = readInt()
     BFF = readIntArr()
-
     DG=nx.DiGraph()
     DG.add_edges_from([(a,BFF[a]-1) for a in range(N)])
-    #nx.draw(DG)
-    #plt.show()
 
     cycles = list(nx.simple_cycles(DG))
     mx = 0
