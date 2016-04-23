@@ -1,5 +1,5 @@
-IN = open('data/test.in', 'r')
-OUT = open('data/test.out', 'w')
+IN = open('data/data.in', 'r')
+OUT = open('data/data.out', 'w')
 
 def setInOut(src, dst):
     global IN
@@ -31,5 +31,5 @@ def done():
     IN.close()
     OUT.close()
 
-#setInOut('data/C-small-practice.in','data/C-small-practice.out')
+setInOut('data/C-large-practice.in','data/C-large-practice.out')
 #setInOut('data/B-large-practice.in','data/B-large-practice.out')

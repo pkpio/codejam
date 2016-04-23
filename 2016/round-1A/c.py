@@ -21,14 +21,17 @@ for t in range(T):
 
     DG=nx.DiGraph()
     DG.add_edges_from([(a,BFF[a]-1) for a in range(N)])
-    nx.draw(DG)
-    plt.show()
+    #nx.draw(DG)
+    #plt.show()
 
     cycles = list(nx.simple_cycles(DG))
     mx = 0
+    mx2 = 0
     for cyc in cycles:
         l = len(cyc)
-        l = l + getTwigLen(DG.copy(), cyc) if l == 2 else l
-        mx = l if l>mx else mx
-    writeLine('Case #{}: {}'.format(t+1, mx))
+        if l == 2:
+            mx2 += l + getTwigLen(DG.copy(), cyc)
+        else:
+            mx = max(l, mx)
+    writeLine('Case #{}: {}'.format(t+1, max(mx, mx2)))
 done()
