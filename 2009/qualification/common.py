@@ -1,8 +1,8 @@
 #############   CONFIG  ##########
-prob = 'A'
-small = 0
+prob = 'B'
+small = 1
 
-test = 0
+test = 1
 practice = 1
 attempt = 0
 ##################################
