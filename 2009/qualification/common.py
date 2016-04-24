@@ -1,6 +1,6 @@
 #############   CONFIG  ##########
-prob = 'B'
-small = 1
+prob = 'C'
+small = 0
 
 test = 1
 practice = 1
